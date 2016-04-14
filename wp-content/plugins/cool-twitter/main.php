@@ -12,20 +12,20 @@
 <?php 
 	
 function web_scraping_admin_actions() {
-    add_menu_page("Web Scraping", "Web Scraping","administrator", "web_scraping_settings", "web_scraping_settings_page");
+    add_menu_page("Twitter", "Twitter","administrator", "twitter_settings", "twitter_settings_page");
 }
  
 add_action('admin_menu', 'web_scraping_admin_actions');
 
-add_action( 'admin_init', 'web_scraping_settings' );
+add_action( 'admin_init', 'twitter_settings' );
 
-function web_scraping_settings() {
+function twitter_settings() {
 	register_setting( 'my-plugin-settings-group', 'accountant_name' );
 	register_setting( 'my-plugin-settings-group', 'accountant_phone' );
 	register_setting( 'my-plugin-settings-group', 'accountant_email' );
 }
 	
-function web_scraping_settings_page()
+function twitter_settings_page()
 {
 	?>
 	<div class="wrap">
