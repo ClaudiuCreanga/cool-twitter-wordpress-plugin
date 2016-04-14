@@ -1,6 +1,6 @@
 <?php 
     /*
-    Plugin Name: Cool Twitter Plugin 
+    Plugin Name: Cool Simple Twitter Plugin 
     Plugin URI: https://github.com/ClaudiuCreanga/cool-twitter-wordpress-plugin
     Description: Plugin for showing your tweets on your blog
     Author: Claudiu Creanga
@@ -29,7 +29,7 @@ function twitter_settings_page()
 {
 	?>
 	<div class="wrap">
-<h2>Staff Details</h2>
+<h2>Twitter Details</h2>
 
 <form method="post" action="options.php">
     <?php settings_fields( 'my-plugin-settings-group' ); ?>
