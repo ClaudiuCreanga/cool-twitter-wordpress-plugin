@@ -46,10 +46,10 @@ class MySettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'twitter_name' );
+        $this->options = get_option( 'twitter' );
         ?>
         <div class="wrap">
-            <h2>My Settings</h2>           
+            <h2>Twitter Settings</h2>           
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
@@ -69,13 +69,13 @@ class MySettingsPage
     {        
         register_setting(
             'twitter_group', // Option group
-            'twitter_name', // Option name
+            'twitter', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
         add_settings_section(
             'main_section', // ID
-            'Twitter connection details', // Title
+            'Connection Details', // Title
             array( $this, 'print_section_info' ), // Callback
             'twitter-settings-admin' // Page
         );  
@@ -105,24 +105,13 @@ class MySettingsPage
         );      
 
         add_settings_field(
-            'oauth_access_token_secret', 
+            'consumer_secret', 
             'Consumer secret', 
             array( $this, 'oauth_access_token_secret_callback' ), 
             'twitter-settings-admin', 
             'main_section'
         );      
     }
-    
-              
-        <tr valign="top">
-        <th scope="row">Consumer key</th>
-        <td><input type="text" name="consumer_key" value="<?php echo esc_attr( get_option('consumer_key') ); ?>" /></td>
-        </tr>
-        
-        <tr valign="top">
-        <th scope="row">Consumer secret</th>
-        <td><input type="text" name="consumer_secret" value="<?php echo esc_attr( get_option('consumer_secret') ); ?>" /></td>
-        </tr>
 
     /**
      * Sanitize each setting field as needed
@@ -161,40 +150,31 @@ class MySettingsPage
     public function oauth_access_token_callback()
     {
         printf(
-            '<input type="text" id="oauth_access_token" name="twitter_name[oauth_access_token]" value="%s" />',
+            '<input type="text" id="oauth_access_token" name="twitter[oauth_access_token]" value="%s" />',
             isset( $this->options['oauth_access_token'] ) ? esc_attr( $this->options['oauth_access_token']) : ''
         );
     }
 
-    /** 
-     * Get the settings option array and print one of its values
-     */
     public function oauth_access_token_secret_callback()
     {
         printf(
-            '<input type="text" id="oauth_access_token_secret" name="twitter_name[oauth_access_token_secret]" value="%s" />',
+            '<input type="text" id="oauth_access_token_secret" name="twitter[oauth_access_token_secret]" value="%s" />',
             isset( $this->options['oauth_access_token_secret'] ) ? esc_attr( $this->options['oauth_access_token_secret']) : ''
         );
     }
     
-    /** 
-     * Get the settings option array and print one of its values
-     */
     public function consumer_key_callback()
     {
         printf(
-            '<input type="text" id="consumer_key" name="twitter_name[consumer_key]" value="%s" />',
+            '<input type="text" id="consumer_key" name="twitter[consumer_key]" value="%s" />',
             isset( $this->options['consumer_key'] ) ? esc_attr( $this->options['consumer_key']) : ''
         );
     }
        
-    /** 
-     * Get the settings option array and print one of its values
-     */
     public function consumer_secret_callback()
     {
         printf(
-            '<input type="text" id="consumer_secret" name="twitter_name[consumer_secret]" value="%s" />',
+            '<input type="text" id="consumer_secret" name="twitter[consumer_secret]" value="%s" />',
             isset( $this->options['consumer_secret'] ) ? esc_attr( $this->options['consumer_secret']) : ''
         );
     }
