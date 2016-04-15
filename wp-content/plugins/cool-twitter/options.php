@@ -46,7 +46,7 @@ class MySettingsPage
     public function create_admin_page()
     {
         // Set class property
-        $this->options = get_option( 'twitter' );
+        $this->options = get_option( 'cool_twitter' );
         ?>
         <div class="wrap">
             <h2>Twitter Settings</h2>           
@@ -69,7 +69,7 @@ class MySettingsPage
     {        
         register_setting(
             'twitter_group', // Option group
-            'twitter', // Option name
+            'cool_twitter', // Option name
             array( $this, 'sanitize' ) // Sanitize
         );
 
@@ -150,7 +150,7 @@ class MySettingsPage
     public function oauth_access_token_callback()
     {
         printf(
-            '<input type="text" id="oauth_access_token" name="twitter[oauth_access_token]" value="%s" />',
+            '<input type="text" id="oauth_access_token" name="cool_twitter[oauth_access_token]" value="%s" />',
             isset( $this->options['oauth_access_token'] ) ? esc_attr( $this->options['oauth_access_token']) : ''
         );
     }
@@ -158,7 +158,7 @@ class MySettingsPage
     public function oauth_access_token_secret_callback()
     {
         printf(
-            '<input type="text" id="oauth_access_token_secret" name="twitter[oauth_access_token_secret]" value="%s" />',
+            '<input type="text" id="oauth_access_token_secret" name="cool_twitter[oauth_access_token_secret]" value="%s" />',
             isset( $this->options['oauth_access_token_secret'] ) ? esc_attr( $this->options['oauth_access_token_secret']) : ''
         );
     }
@@ -166,7 +166,7 @@ class MySettingsPage
     public function consumer_key_callback()
     {
         printf(
-            '<input type="text" id="consumer_key" name="twitter[consumer_key]" value="%s" />',
+            '<input type="text" id="consumer_key" name="cool_twitter[consumer_key]" value="%s" />',
             isset( $this->options['consumer_key'] ) ? esc_attr( $this->options['consumer_key']) : ''
         );
     }
@@ -174,11 +174,12 @@ class MySettingsPage
     public function consumer_secret_callback()
     {
         printf(
-            '<input type="text" id="consumer_secret" name="twitter[consumer_secret]" value="%s" />',
+            '<input type="text" id="consumer_secret" name="cool_twitter[consumer_secret]" value="%s" />',
             isset( $this->options['consumer_secret'] ) ? esc_attr( $this->options['consumer_secret']) : ''
         );
     }
 }
 
-if( is_admin() )
+if(is_admin()){
     $my_settings_page = new MySettingsPage();
+}
