@@ -107,7 +107,7 @@ class MySettingsPage
         add_settings_field(
             'consumer_secret', 
             'Consumer secret', 
-            array( $this, 'oauth_access_token_secret_callback' ), 
+            array( $this, 'consumer_secret_callback' ), 
             'twitter-settings-admin', 
             'main_section'
         );      
@@ -122,7 +122,7 @@ class MySettingsPage
     {
         $new_input = array();
         if( isset( $input['oauth_access_token'] ) )
-            $new_input['oauth_access_token'] = absint( $input['oauth_access_token'] );
+            $new_input['oauth_access_token'] = sanitize_text_field( $input['oauth_access_token'] );
 
         if( isset( $input['oauth_access_token_secret'] ) )
             $new_input['oauth_access_token_secret'] = sanitize_text_field( $input['oauth_access_token_secret'] );
