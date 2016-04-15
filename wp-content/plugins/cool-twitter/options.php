@@ -1,13 +1,3 @@
-<?php 
-    /*
-    Plugin Name: Cool Simple Twitter Plugin 
-    Plugin URI: https://github.com/ClaudiuCreanga/cool-twitter-wordpress-plugin
-    Description: Plugin for showing your tweets on your blog
-    Author: Claudiu Creanga
-    Version: 1.0
-    Author URI: http://claudiucreanga.me
-    */
-?>
 <?php
 class MySettingsPage
 {
@@ -183,3 +173,4 @@ class MySettingsPage
 if(is_admin()){
     $my_settings_page = new MySettingsPage();
 }
+

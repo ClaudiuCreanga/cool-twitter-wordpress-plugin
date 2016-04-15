@@ -6,5 +6,7 @@
 	}
 	 
 	$option_name = 'cool_twitter';
-	 
-	delete_option( $option_name );
+	
+	if ( function_exists( 'delete_option' ) ) {
+		delete_option( $option_name );
+	}

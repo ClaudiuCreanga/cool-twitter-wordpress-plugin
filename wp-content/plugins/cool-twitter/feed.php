@@ -1,4 +1,3 @@
-<?php die("test"); ?>
 <div class="main-content blog single">
 	<div class="row">
 		<div class="blog-header large-12 columns">
