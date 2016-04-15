@@ -9,7 +9,6 @@
     */
 ?>
 <?php
-
 	// make sure the plugin does not expose any info if called directly
 	if ( ! function_exists( 'add_action' ) ) {
 		if ( ! headers_sent() ) {
@@ -21,3 +20,7 @@
 		}
 		exit( 'Hi there! I am a WordPress plugin requiring functions included with WordPress. I am not meant to be addressed directly.' );
 	}
+	
+	require_once(dirname( __FILE__ ) . '/options.php');
+	//require_once(dirname( __FILE__ ) . '/feed.php');
+	require_once(dirname( __FILE__ ) . '/shortcode.php');
