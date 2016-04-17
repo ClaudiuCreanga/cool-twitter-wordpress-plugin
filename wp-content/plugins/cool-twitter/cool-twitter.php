@@ -21,6 +21,7 @@
 		exit( 'Hi there! I am a WordPress plugin requiring functions included with WordPress. I am not meant to be addressed directly.' );
 	}
 	
+	$base_dir = dirname( __FILE__ ) . '/src/';
 	require_once(dirname( __FILE__ ) . '/options.php');
 	//require_once(dirname( __FILE__ ) . '/feed.php');
-	require_once(dirname( __FILE__ ) . '/shortcode.php');
+	require_once($base_dir . 'Shortcodes/shortcode.php');
