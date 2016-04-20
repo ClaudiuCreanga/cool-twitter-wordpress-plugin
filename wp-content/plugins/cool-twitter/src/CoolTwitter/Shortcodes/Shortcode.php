@@ -1,8 +1,6 @@
 <?php
 	
-namespace Shortcodes;
-
-class Shortcode
+class CoolTwitter_Shortcodes_Shortcode
 {
 	public function __construct()
 	{
@@ -18,4 +16,3 @@ class Shortcode
     }
 }
 
-$shortcode = new Shortcode;

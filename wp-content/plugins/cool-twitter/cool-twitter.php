@@ -23,5 +23,9 @@
 	
 	$base_dir = dirname( __FILE__ ) . '/src/';
 	require_once(dirname( __FILE__ ) . '/options.php');
-	//require_once(dirname( __FILE__ ) . '/feed.php');
-	require_once($base_dir . 'Shortcodes/shortcode.php');
+// PHP namespace autoloader
+require_once( dirname( __FILE__ ) . '/src/Autoloader.php' );
+CoolTwitter_Autoloader::register();
+
+$shortcode = new CoolTwitter_Shortcodes_Shortcode;
+	
